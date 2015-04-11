@@ -1,0 +1,51 @@
+{
+  "author": "Zachary Iles <zack.iles@gmail.com>",
+  "name": "deep-scrape",
+  "version": "0.0.1",
+  "license": "MIT",
+  "description": "Scrape pages with io.js and get a whole lot of meta data. Shows; headers, Ajax requests/responses, rendered html, Javascript AST's, dependencies, console events, and a whole lot more.",
+  "keywords": [
+    "security",
+    "pentesting",
+    "scanner",
+    "fingerprint",
+    "exploit",
+    "xss",
+    "csrf"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/zackiles/deep-scrape"
+  },
+  "bugs": {
+    "url": "https://github.com/zackiles/deep-scrape/issues"
+  },
+  "dependencies": {
+    "acorn": "^1.0.3",
+    "bluebird": "^2.9.24",
+    "cheerio": "^0.19.0",
+    "lodash": "^3.6.0",
+    "minimist": "^1.1.1",
+    "moment": "^2.10.2",
+    "phantom": "^0.7.2",
+    "phantomjs": "^1.9.15",
+    "redis": "^0.12.1",
+    "restler": "^3.2.2",
+    "string": "^3.1.1",
+    "truncatise": "0.0.2",
+    "winston": "^1.0.0"
+  },
+  "engines": {
+    "node": "^1.2.0",
+    "iojs": "1.0.x"
+  },
+  "devDependencies": {
+    "mocha": "^2.2.4",
+    "should": "^5.2.0"
+  },
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha",
+    "start": "iojs ./index"
+  }
+}

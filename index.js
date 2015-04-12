@@ -19,9 +19,8 @@ process
 .on('SIGABRT', cleanUpOnExit)
 .on('SIGTERM', cleanUpOnExit);
 
-scanner.scanUrl(argv.h || argv.host)
+scanner.scanUrl((argv.h || argv.host).trim())
   .then(function(results){
-    logger.info(results.meta);
     cleanUpOnExit();
   })
   .catch(function(err){

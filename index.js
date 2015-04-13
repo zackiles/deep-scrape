@@ -19,13 +19,41 @@ process
 .on('SIGABRT', cleanUpOnExit)
 .on('SIGTERM', cleanUpOnExit);
 
-scanner.scanPage((argv.h || argv.host).trim())
-  .then(function(results){
-    var item = results.page.meta;
-    logger.info(item);
-    cleanUpOnExit();
-  })
-  .catch(function(err){
-    logger.error({error: err.toString(), message: err.message, stack: err.stack })
-  })
-  .done();
+function scanSite(options, cb){
+  scanner.scanSite(options).then(function(results){
+    cb(null, results);
+  }).catch(function(err){
+    Browser.exitAll();
+    cb(err);
+  }).done();
+}
+function scanPage(options, cb){
+  scanner.scanPage(options).then(function(results){
+    cb(null, results);
+  }).catch(function(err){
+    Browser.exitAll();
+    cb(err);
+  }).done();
+}
+
+if(require.main === module){
+  var page = (argv.h || argv.host);
+  var site = (argv.s || argv.site);
+  var handle = function(err, results){
+    if(err) throw err;
+    process.stdout.write(results.toJSON());
+    process.exit(0);
+  };
+
+  if(page){
+    scanPage(page, handle);
+  }else{
+    scanSite(site, handle);
+  }
+
+}else{
+  module.exports = {
+    scanPage: scanPage,
+    scanSite: scanSite
+  };
+}

@@ -23,6 +23,8 @@ npm install deep-scrape
 
 - You are scraping websites with lots of javascript (Angular, Ember, Browserfy).
 - You don't mind trading a bit of performance for more detailed scraping data.
-- You would like to find potentential DOM sinks and sources on your pages (Possibly for vulnerability scanning).
+- You would like to find potential DOM sinks and sources on your pages (Possibly for vulnerability scanning).
 - You need the most detailed metadata, metrics, and analyitics on your scraped pages.
 - You would like to fingerprint possible technologies a certain site or page uses.
+
+

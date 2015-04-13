@@ -3,7 +3,7 @@
   "name": "deep-scrape",
   "version": "0.0.1",
   "license": "MIT",
-  "description": "Scrape pages with io.js and get a whole lot of meta data. Shows; headers, Ajax requests/responses, rendered html, Javascript AST's, dependencies, console events, and a whole lot more.",
+  "description": "Scrape pages with io.js and get a whole lot of meta data. Shows; headers, Ajax requests/responses, rendered html, Javascript AST's, dependencies, console events, and a whole lot more. Crawl sites, or scrape a single page. Add cookies or proxy requests. Fingerprints common javascript libraries, and allows you to write your own.",
   "keywords": [
     "security",
     "pentesting",

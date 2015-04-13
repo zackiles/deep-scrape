@@ -17,43 +17,36 @@ process
 .on('SIGABRT', cleanUpOnExit)
 .on('SIGTERM', cleanUpOnExit);
 
-function scanSite(options, cb){
-  scanner.scanSite(options).then(function(results){
-    cb(null, results);
-  }).catch(function(err){
-    Browser.exitAll();
-    cb(err);
-  }).done();
-}
-function scanPage(options, cb){
-  scanner.scanPage(options).then(function(results){
-    cb(null, results);
-  }).catch(function(err){
-    Browser.exitAll();
-    cb(err);
-  }).done();
-}
-
 if(require.main === module){
+
   var page = (argv.h || argv.host);
   var site = (argv.s || argv.site);
-  var handle = function(err, results){
-    if(err) throw err;
+  var quiet = (argv.q || argv.quiet);
+
+  var handleSuccess = function(results){
     process.stdout.write(results.toJSON());
     process.exit(0);
   };
 
+  var handleError = function(err){
+    Browser.exitAll();
+    if(err) logger.error({error: err.toString(), stack: err.stack});
+    process.exit(0);
+  };
+
+  if(quiet) logger.transports.console.silent = true;
+
   if(page){
-    scanPage(page, handle);
+    scanner.scanPage(page).then(handleSuccess).catch(handleError).done();
   }else if(site){
-    scanSite(site, handle);
+    scanner.scanSite(site).then(handleSuccess).catch(handleError).done();
   }else{
     throw new Error('A host or site was not specified with -s or -h');
   }
 
 }else{
   module.exports = {
-    scanPage: scanPage,
-    scanSite: scanSite
+    scanPage: scanner.scanPage,
+    scanSite: scanner.scanSite
   };
 }

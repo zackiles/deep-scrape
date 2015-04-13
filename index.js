@@ -19,8 +19,10 @@ process
 .on('SIGABRT', cleanUpOnExit)
 .on('SIGTERM', cleanUpOnExit);
 
-scanner.scanUrl((argv.h || argv.host).trim())
+scanner.scanPage((argv.h || argv.host).trim())
   .then(function(results){
+    var item = results.page.meta;
+    logger.info(item);
     cleanUpOnExit();
   })
   .catch(function(err){

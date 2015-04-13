@@ -5,8 +5,6 @@ var logger = require('./lib/logger'),
     scanner = require('./lib/scanner'),
     argv = require('minimist')(process.argv.slice(2));
 
-if(!argv.h && !argv.host) throw new Error('No host was specified with -h');
-
 var cleanUpOnExit = function(){
   Browser.exitAll();
   process.exit(0);
@@ -47,8 +45,10 @@ if(require.main === module){
 
   if(page){
     scanPage(page, handle);
-  }else{
+  }else if(site){
     scanSite(site, handle);
+  }else{
+    throw new Error('A host or site was not specified with -s or -h');
   }
 
 }else{

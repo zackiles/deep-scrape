@@ -31,9 +31,11 @@
     "phantomjs": "^1.9.15",
     "redis": "^0.12.1",
     "restler": "^3.2.2",
+    "robots": "^0.9.4",
     "string": "^3.1.1",
     "truncatise": "0.0.2",
-    "winston": "^1.0.0"
+    "winston": "^1.0.0",
+    "xml2js": "^0.4.6"
   },
   "engines": {
     "node": "^1.2.0",

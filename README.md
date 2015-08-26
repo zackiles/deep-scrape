@@ -5,19 +5,10 @@ Scrape and crawl pages with io.js and get a whole lot of meta data. Shows; heade
 
 ## Installation
 
-This was tested on io.js 1.6.x. You will likely need that or at least node 0.12.x with ES6 harmony flags.
-You can install io.js with [NVM](https://github.com/creationix/nvm) quickly by doing the following:
-
-```sh
-// install NVM
-curl https://raw.githubusercontent.com/creationix/nvm/v0.24.1/install.sh | bash
-nvm install iojs
-~/.nvm/nvm.sh
-nvm use iojs
-```
-
+This was tested on node 0.12.x. It can be run as a module export, or a command line script.
 ```sh
 npm install deep-scrape
+// or clone the repository and run it as a script.
 ```
 ## Use Case
 

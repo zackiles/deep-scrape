@@ -39,8 +39,7 @@
     "xml2js": "^0.4.6"
   },
   "engines": {
-    "node": "^1.2.0",
-    "iojs": "1.0.x"
+    "node": ">= 0.10.0"
   },
   "devDependencies": {
     "mocha": "^2.2.4",
@@ -48,7 +47,6 @@
   },
   "main": "index.js",
   "scripts": {
-    "test": "mocha",
-    "start": "iojs ./index"
+    "test": "NODE_ENV=test ./node_modules/.bin/mocha --require should --bail --check-leaks"
   }
 }

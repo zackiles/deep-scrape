@@ -24,8 +24,8 @@ if(require.main === module){
   var quiet = (argv.q || argv.quiet);
 
   var handleSuccess = function(results){
-    logger.info(results.pages.length);
-    //process.stdout.write(results.toJSON());
+    //logger.info(results.pages.length);
+    process.stdout.write(results.toJSON());
     process.exit(0);
   };
 

@@ -26,13 +26,12 @@ if(require.main === module){
   var handleSuccess = function(results){
     //logger.info(results.pages.length);
     process.stdout.write(results.toJSON());
-    process.exit(0);
+    cleanUpOnExit();
   };
 
   var handleError = function(err){
-    Browser.exitAll();
     if(err) logger.error({error: err.toString(), stack: err.stack});
-    process.exit(0);
+    cleanUpOnExit();
   };
 
   if(quiet) logger.transports.console.silent = true;

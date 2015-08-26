@@ -5,6 +5,12 @@ var logger = require('./lib/logger'),
     scanner = require('./lib/scanner'),
     argv = require('minimist')(process.argv.slice(2));
 
+if (!String.prototype.includes) {
+  String.prototype.includes = function() {
+    return String.prototype.indexOf.apply(this, arguments) !== -1;
+  };
+}
+
 var cleanUpOnExit = function(){
   Browser.exitAll();
   process.exit(0);

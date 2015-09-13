@@ -31,7 +31,7 @@ if(require.main === module){
 
   var handleSuccess = function(results){
     //logger.info(results.pages.length);
-    process.stdout.write(JSON stringify(results));
+    process.stdout.write(JSON.stringify(results));
     cleanUpOnExit();
   };
 

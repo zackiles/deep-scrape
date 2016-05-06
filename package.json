@@ -1,7 +1,7 @@
 {
   "author": "Zachary Iles <zack.iles@gmail.com>",
   "name": "deep-scrape",
-  "version": "0.0.4",
+  "version": "0.0.5",
   "license": "MIT",
   "description": "Scrape and crawl pages with io.js and get a whole lot of meta data. Shows; headers, Ajax requests/responses, rendered html, Javascript AST's, dependencies, console events, and a whole lot more. Crawl sites, or scrape a single page. Add cookies or proxy requests. Fingerprints common javascript libraries, and allows you to write your own.",
   "keywords": [
